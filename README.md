@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Project Deployed on [TuteDude-React-7](https://tutredude-react-7.netlify.app/).
 
 ## Available Scripts
 
