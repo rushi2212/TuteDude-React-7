@@ -68,42 +68,46 @@ const Transaction = () => {
 
   return (
     <div className="container mt-4">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h4>Transactions</h4>
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3 gap-3">
+        <h4 className="mb-0">Transactions</h4>
         <Button variant="primary" onClick={() => setShowModal(true)}>+ Add</Button>
       </div>
 
-      <table className="table table-bordered text-center small align-middle">
-        <thead className="table-light">
-          <tr>
-            <th onClick={() => handleSort('type')} style={{ cursor: 'pointer' }}>Type</th>
-            <th onClick={() => handleSort('amount')} style={{ cursor: 'pointer' }}>Amount</th>
-            <th onClick={() => handleSort('category')} style={{ cursor: 'pointer' }}>Category</th>
-            <th onClick={() => handleSort('date')} style={{ cursor: 'pointer' }}>Date</th>
-            <th>Description</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.length === 0 ? (
-            <tr><td colSpan="6" className="text-muted">No transactions available</td></tr>
-          ) : (
-            transactions.map(txn => (
-              <tr key={txn.id}>
-                <td>{txn.type}</td>
-                <td>₹{txn.amount}</td>
-                <td>{txn.category}</td>
-                <td>{txn.date}</td>
-                <td>{txn.description || '-'}</td>
-                <td>
-                  <Button size="sm" variant="outline-warning" className="me-2" onClick={() => handleEdit(txn)}>Edit</Button>
-                  <Button size="sm" variant="outline-danger" onClick={() => handleDelete(txn.id)}>Delete</Button>
-                </td>
-              </tr>
-            ))
-          )}
-        </tbody>
-      </table>
+      <div className="table-responsive">
+        <table className="table table-bordered text-center small align-middle">
+          <thead className="table-light">
+            <tr>
+              <th onClick={() => handleSort('type')} style={{ cursor: 'pointer' }}>Type</th>
+              <th onClick={() => handleSort('amount')} style={{ cursor: 'pointer' }}>Amount</th>
+              <th onClick={() => handleSort('category')} style={{ cursor: 'pointer' }}>Category</th>
+              <th onClick={() => handleSort('date')} style={{ cursor: 'pointer' }}>Date</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions.length === 0 ? (
+              <tr><td colSpan="6" className="text-muted">No transactions available</td></tr>
+            ) : (
+              transactions.map(txn => (
+                <tr key={txn.id}>
+                  <td>{txn.type}</td>
+                  <td>₹{txn.amount}</td>
+                  <td>{txn.category}</td>
+                  <td>{txn.date}</td>
+                  <td>{txn.description || '-'}</td>
+                  <td>
+                    <div className="d-flex flex-column flex-sm-row justify-content-center gap-1">
+                      <Button size="sm" variant="outline-warning" onClick={() => handleEdit(txn)}>Edit</Button>
+                      <Button size="sm" variant="outline-danger" onClick={() => handleDelete(txn.id)}>Delete</Button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
 
       <Modal show={showModal} onHide={() => { setShowModal(false); setIsEdit(false); }}>
         <Form onSubmit={handleSubmit}>
