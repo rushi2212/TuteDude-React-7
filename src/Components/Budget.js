@@ -30,7 +30,7 @@ const Budget = () => {
   const categories = Object.keys(budgets);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-4">
       <h4 className="mb-3">Set Your Budgets</h4>
       <Form className="row g-2 mb-4" onSubmit={handleAddBudget}>
         <div className="col-md-4">

@@ -52,7 +52,7 @@ const Dashboard = () => {
   const pieData = Object.entries(categoryMap).map(([name, value]) => ({ name, value }));
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h4>Dashboard</h4>
         <input type="date" className="form-control w-auto" value={dateFilter} onChange={e => setDateFilter(e.target.value)} />

@@ -41,7 +41,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 mb-4">
       <h3 className="mb-4">Profile</h3>
 
       <Card className="p-4 shadow-sm">
